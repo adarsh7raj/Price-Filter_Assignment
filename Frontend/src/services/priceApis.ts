@@ -15,7 +15,7 @@ export async function fetchCombined(query: string): Promise<Product[]> {
     const res = await axios.get("http://localhost:5000/api/products", {
       params: { q: query },
     });
-    return res.data;
+    return res.data as Product[];
   } catch (err) {
     console.error("Fetch error:", err);
     return [];
