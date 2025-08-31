@@ -1,36 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { fetchCombined } from "./services/priceApis";
 import type { Product } from "./services/priceApis";
 import ProductCard from "./components/ProductCard";
-
-
-const debounce = (fn: Function, delay: number) => {
-  let timer: ReturnType<typeof setTimeout>;
-  return (...args: any[]) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn(...args), delay);
-  };
-};
 
 function App() {
   const [query, setQuery] = useState("");
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const searchProducts = async (q: string) => {
-    if (!q) return;
-    setLoading(true);
-    const data = await fetchCombined(q);
-    setProducts(data);
-    setLoading(false);
-  };
+  useEffect(() => {
+    if (!query) return;
 
-  const handleSearch = debounce(searchProducts, 800);
+    const timer = setTimeout(async () => {
+      setLoading(true);
+      const data = await fetchCombined(query);
+      setProducts(data);
+      setLoading(false);
+    }, 800); // wait 800ms after user stops typing
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-    handleSearch(e.target.value);
-  };
+    return () => clearTimeout(timer); // cancel previous timer on each keystroke
+  }, [query]);
 
   return (
     <div className="app">
@@ -41,14 +30,14 @@ function App() {
         type="text"
         placeholder="Search for a product..."
         value={query}
-        onChange={onChange}
+        onChange={(e) => setQuery(e.target.value)} // just update state
       />
 
       {loading && <p>Loading...</p>}
 
       <div className="grid">
         {products.map((p, i) => (
-          <ProductCard key={i} product={p} />
+          <ProductCard key={i} rank={i+1} product={p} />
         ))}
       </div>
     </div>

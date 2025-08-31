@@ -24,7 +24,7 @@ input {
   gap: 20px;
   margin-top: 20px;
 }
-
+/* 
 .card {
   background: #fff;
   border-radius: 12px;
@@ -69,4 +69,107 @@ button:hover {
   font-size: 12px;
   background: #eee;
   border-radius: 5px;
+} */
+
+
+
+.product-card {
+  position: relative;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+/* 🔹 Source Ribbon */
+/* 🔹 Source Ribbon */
+.source-ribbon {
+  position: absolute;
+  top: 12px;        /* moved down so it's fully visible */
+  left: -32px;      /* adjusted so ribbon sits nicely */
+  width: 140px;     /* slightly wider for better text fit */
+  text-align: center;
+  padding: 4px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1;       /* ensures ribbon appears above card */
+}
+
+.source-ribbon.amazon {
+  background-color: #fbbf24; /* yellow-500 */
+  color: #111;
+}
+
+.source-ribbon.flipkart {
+  background-color: #2563eb; /* blue-600 */
+}
+
+
+/* 🔹 Rank Badge */
+.rank-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #333;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Product Image */
+.product-image {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+/* Title */
+.product-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Price */
+.product-price {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #047857; /* green-700 */
+}
+
+/* Button */
+.buy-btn {
+  width: 100%;
+  background: #059669; /* green-600 */
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.buy-btn:hover {
+  background: #047857; /* darker green */
 }
