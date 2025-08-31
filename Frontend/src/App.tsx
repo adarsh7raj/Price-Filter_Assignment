@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { fetchCombined } from "./services/priceApis";
 import type { Product } from "./services/priceApis";
 import ProductCard from "./components/ProductCard";

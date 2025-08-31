@@ -2,6 +2,10 @@
 
 A full-stack application that compares product prices from **Amazon** and **Flipkart** in real-time using the Oxylabs API. Get the best deals by comparing prices across multiple platforms instantly.
 
+⚠️ **Note**: Currently,  
+- For **Flipkart**, the search works reliably only for **laptops** and **mobiles**.  
+- For **Amazon**, you can search for **any product**.  
+
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Node.js](https://img.shields.io/badge/node.js-v16+-green.svg)
 ![React](https://img.shields.io/badge/react-v18+-blue.svg)

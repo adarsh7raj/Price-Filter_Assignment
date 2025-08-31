@@ -5,10 +5,10 @@ import type { Product } from "../services/priceApis";
 interface Props {
   product: Product;
   rank: number;
-  id?: string;
+
 }
 
-const ProductCard: React.FC<Props> = ({ rank, product, id }) => {
+const ProductCard: React.FC<Props> = ({ rank, product }) => {
   return (
     <div className="product-card">
       {/* 🔹 Source Ribbon (Amazon / Flipkart) */}
