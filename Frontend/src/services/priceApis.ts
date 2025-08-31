@@ -10,6 +10,7 @@ export interface Product {
 }
 const backendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 // Call backend instead of Oxylabs directly
+console.log("Backend URL:", backendURL);
 export async function fetchCombined(query: string): Promise<Product[]> {
   try {
     const res = await axios.get(`${backendURL}/api/products`, {
